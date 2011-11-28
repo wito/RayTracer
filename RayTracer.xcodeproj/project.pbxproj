@@ -13,14 +13,15 @@
 		5CD7E2D41484165A00B121AE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 5CD7E2D21484165A00B121AE /* Credits.rtf */; };
 		5CD7E2D71484165A00B121AE /* RTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7E2D61484165A00B121AE /* RTAppDelegate.m */; };
 		5CD7E2DA1484165B00B121AE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CD7E2D81484165B00B121AE /* MainMenu.xib */; };
+		5CD7E2E21484191600B121AE /* RTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7E2E11484191600B121AE /* RTView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5CD7E2BF1484165A00B121AE /* RayTracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RayTracer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD7E2C31484165A00B121AE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		5CD7E2C61484165A00B121AE /* AppKit.framework */ = {isa = PBXFileReference; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		5CD7E2C71484165A00B121AE /* CoreData.framework */ = {isa = PBXFileReference; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		5CD7E2C81484165A00B121AE /* Foundation.framework */ = {isa = PBXFileReference; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5CD7E2C61484165A00B121AE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		5CD7E2C71484165A00B121AE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5CD7E2C81484165A00B121AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5CD7E2CB1484165A00B121AE /* RayTracer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RayTracer-Info.plist"; sourceTree = "<group>"; };
 		5CD7E2CD1484165A00B121AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5CD7E2CF1484165A00B121AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -29,6 +30,8 @@
 		5CD7E2D51484165A00B121AE /* RTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTAppDelegate.h; sourceTree = "<group>"; };
 		5CD7E2D61484165A00B121AE /* RTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTAppDelegate.m; sourceTree = "<group>"; };
 		5CD7E2D91484165B00B121AE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		5CD7E2E01484191600B121AE /* RTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTView.h; sourceTree = "<group>"; };
+		5CD7E2E11484191600B121AE /* RTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				5CD7E2D51484165A00B121AE /* RTAppDelegate.h */,
 				5CD7E2D61484165A00B121AE /* RTAppDelegate.m */,
 				5CD7E2D81484165B00B121AE /* MainMenu.xib */,
+				5CD7E2E01484191600B121AE /* RTView.h */,
+				5CD7E2E11484191600B121AE /* RTView.m */,
 				5CD7E2CA1484165A00B121AE /* Supporting Files */,
 			);
 			path = RayTracer;
@@ -168,6 +173,7 @@
 			files = (
 				5CD7E2D01484165A00B121AE /* main.m in Sources */,
 				5CD7E2D71484165A00B121AE /* RTAppDelegate.m in Sources */,
+				5CD7E2E21484191600B121AE /* RTView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
