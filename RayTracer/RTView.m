@@ -16,14 +16,19 @@
   self = [super initWithFrame:frame];
 
   if (self) {
-    // Initialization code here.
+    _renderBuffer = [[NSImage alloc] initWithSize:NSMakeSize(1280.0, 720.0)];
+    
+    NSBitmapImageRep *_renderBufferRep = [[NSBitmapImageRep alloc] initWithBitmapDataPlanes:NULL pixelsWide:1280 pixelsHigh:720 bitsPerSample:8 samplesPerPixel:4 hasAlpha:YES isPlanar:NO colorSpaceName:NSDeviceRGBColorSpace bytesPerRow:5120 bitsPerPixel:32];
+    [_renderBufferRep autorelease];
+    
+    [_renderBuffer addRepresentation:_renderBufferRep];
   }
   
   return self;
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
-  // Drawing code here.
+  [self.renderBuffer drawInRect:dirtyRect fromRect:dirtyRect operation:NSCompositeSourceIn fraction:1.0];
 }
 
 - (IBAction)render:(id)sender {
