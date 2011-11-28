@@ -8,8 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class RTView;
+
 @interface RTAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet RTView *renderView;
+
+- (IBAction)saveDocument:(id)sender;
 
 @end
