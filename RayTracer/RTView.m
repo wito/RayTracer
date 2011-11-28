@@ -12,19 +12,18 @@
 
 @synthesize renderBuffer = _renderBuffer;
 
-- (id)initWithFrame:(NSRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
+- (id)initWithFrame:(NSRect)frame {
+  self = [super initWithFrame:frame];
+
+  if (self) {
+    // Initialization code here.
+  }
+  
+  return self;
 }
 
-- (void)drawRect:(NSRect)dirtyRect
-{
-    // Drawing code here.
+- (void)drawRect:(NSRect)dirtyRect {
+  // Drawing code here.
 }
 
 - (IBAction)render:(id)sender {
