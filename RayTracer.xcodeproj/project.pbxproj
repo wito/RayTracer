@@ -18,15 +18,15 @@
 /* Begin PBXFileReference section */
 		5CD7E2BF1484165A00B121AE /* RayTracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RayTracer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD7E2C31484165A00B121AE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		5CD7E2C61484165A00B121AE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		5CD7E2C71484165A00B121AE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		5CD7E2C81484165A00B121AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		5CD7E2CB1484165A00B121AE /* RayTracer-Info.plist */ = {isa = PBXFileReference; path = "RayTracer-Info.plist"; sourceTree = "<group>"; };
+		5CD7E2C61484165A00B121AE /* AppKit.framework */ = {isa = PBXFileReference; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		5CD7E2C71484165A00B121AE /* CoreData.framework */ = {isa = PBXFileReference; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5CD7E2C81484165A00B121AE /* Foundation.framework */ = {isa = PBXFileReference; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5CD7E2CB1484165A00B121AE /* RayTracer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RayTracer-Info.plist"; sourceTree = "<group>"; };
 		5CD7E2CD1484165A00B121AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5CD7E2CF1484165A00B121AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5CD7E2D11484165A00B121AE /* RayTracer-Prefix.pch */ = {isa = PBXFileReference; path = "RayTracer-Prefix.pch"; sourceTree = "<group>"; };
+		5CD7E2D11484165A00B121AE /* RayTracer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RayTracer-Prefix.pch"; sourceTree = "<group>"; };
 		5CD7E2D31484165A00B121AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		5CD7E2D51484165A00B121AE /* RTAppDelegate.h */ = {isa = PBXFileReference; path = RTAppDelegate.h; sourceTree = "<group>"; };
+		5CD7E2D51484165A00B121AE /* RTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTAppDelegate.h; sourceTree = "<group>"; };
 		5CD7E2D61484165A00B121AE /* RTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTAppDelegate.m; sourceTree = "<group>"; };
 		5CD7E2D91484165B00B121AE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -252,7 +252,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RayTracer/RayTracer-Prefix.pch";
 				INFOPLIST_FILE = "RayTracer/RayTracer-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VERSIONING_SYSTEM = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -263,7 +265,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RayTracer/RayTracer-Prefix.pch";
 				INFOPLIST_FILE = "RayTracer/RayTracer-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VERSIONING_SYSTEM = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
