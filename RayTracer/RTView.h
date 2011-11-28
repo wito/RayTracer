@@ -10,6 +10,8 @@
 
 @interface RTView : NSView
 
+@property (copy) NSImage *renderBuffer;
+
 - (IBAction)render:(id)sender;
 - (IBAction)renderToFile:(id)sender;
 

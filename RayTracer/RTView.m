@@ -10,6 +10,8 @@
 
 @implementation RTView
 
+@synthesize renderBuffer = _renderBuffer;
+
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
@@ -23,6 +25,12 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
     // Drawing code here.
+}
+
+- (IBAction)render:(id)sender {
+}
+
+- (IBAction)renderToFile:(id)sender {
 }
 
 @end
