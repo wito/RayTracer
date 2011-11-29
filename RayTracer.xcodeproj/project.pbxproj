@@ -20,12 +20,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5CAEE16B1484D027000C3BA8 /* RTScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTScene.h; path = Scene/RTScene.h; sourceTree = "<group>"; };
-		5CAEE16C1484D027000C3BA8 /* RTScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTScene.m; path = Scene/RTScene.m; sourceTree = "<group>"; };
-		5CAEE1701484D1F5000C3BA8 /* RTSceneObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTSceneObject.h; path = Scene/RTSceneObject.h; sourceTree = "<group>"; };
-		5CAEE1711484D1F5000C3BA8 /* RTSceneObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTSceneObject.m; path = Scene/RTSceneObject.m; sourceTree = "<group>"; };
-		5CAEE1751484D358000C3BA8 /* RTGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTGeometry.h; path = Scene/RTGeometry.h; sourceTree = "<group>"; };
-		5CAEE1761484D358000C3BA8 /* RTGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTGeometry.m; path = Scene/RTGeometry.m; sourceTree = "<group>"; };
+		5CAEE16B1484D027000C3BA8 /* RTScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTScene.h; sourceTree = "<group>"; };
+		5CAEE16C1484D027000C3BA8 /* RTScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTScene.m; sourceTree = "<group>"; };
+		5CAEE1701484D1F5000C3BA8 /* RTSceneObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSceneObject.h; sourceTree = "<group>"; };
+		5CAEE1711484D1F5000C3BA8 /* RTSceneObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTSceneObject.m; sourceTree = "<group>"; };
+		5CAEE1751484D358000C3BA8 /* RTGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTGeometry.h; sourceTree = "<group>"; };
+		5CAEE1761484D358000C3BA8 /* RTGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTGeometry.m; sourceTree = "<group>"; };
 		5CD7E2BF1484165A00B121AE /* RayTracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RayTracer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD7E2C31484165A00B121AE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		5CD7E2C61484165A00B121AE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -65,7 +65,7 @@
 				5CAEE1701484D1F5000C3BA8 /* RTSceneObject.h */,
 				5CAEE1711484D1F5000C3BA8 /* RTSceneObject.m */,
 			);
-			name = Scene;
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		5CD7E2B41484165A00B121AE = {
