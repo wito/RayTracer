@@ -22,4 +22,14 @@
   return self;
 }
 
+- (void)scaleBy:(RTVector)v {
+  RTMatrix scaleMatrix = RTMatrixIdentity();
+  
+  scaleMatrix.a1 = v.x;
+  scaleMatrix.b2 = v.y;
+  scaleMatrix.c3 = v.z;
+  
+  self.transformation = RTMatrixMultiply(self.transformation, scaleMatrix);
+}
+
 @end
