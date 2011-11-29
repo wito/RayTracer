@@ -46,4 +46,8 @@
   return ray;
 }
 
+- (void)lengthen:(CGFloat)factor {
+  self.end = RTVectorAddition(self.start, RTVectorMultiply(self.direction, factor));
+}
+
 @end

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "RTGeometry.h"
 
+@class RTRay;
+
 @interface RTSceneObject : NSObject
 
 @property (assign) RTMatrix transformation;
@@ -16,5 +18,7 @@
 - (void)scaleBy:(RTVector)v;
 - (void)translateBy:(RTVector)v;
 - (void)rotateBy:(RTVector)v;
+
+- (CGFloat)intersectsRay:(RTRay *)ray atPoint:(RTVector *)intersection normal:(RTVector *)normal;
 
 @end

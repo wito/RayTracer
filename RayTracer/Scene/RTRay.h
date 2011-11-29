@@ -22,4 +22,6 @@
 - (RTRay *)rayByTransformingByMatrix:(RTMatrix)transformation;
 - (void)transformByMatrix:(RTMatrix)transformation;
 
+- (void)lengthen:(CGFloat)factor;
+
 @end
