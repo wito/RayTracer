@@ -32,4 +32,14 @@
   self.transformation = RTMatrixMultiply(self.transformation, scaleMatrix);
 }
 
+- (void)translateBy:(RTVector)v {
+  RTMatrix transMatrix = RTMatrixIdentity();
+  
+  transMatrix.a4 = v.x;
+  transMatrix.b4 = v.y;
+  transMatrix.c4 = v.z;
+  
+  self.transformation = RTMatrixMultiply(self.transformation, transMatrix);
+}
+
 @end

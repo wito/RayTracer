@@ -29,6 +29,9 @@
   
   if (self) {
     _resolution = (RTResolution){1280, 720};
+    
+    [self translateBy:RTMakeVector(0.0, 0.5, 5.0)];
+    //rotate
     [self scaleBy:RTMakeVector(1.280, 0.720, 1.0)];
   }
   
