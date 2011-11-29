@@ -7,6 +7,7 @@
 //
 
 #import "RTCamera.h"
+#import "RTRay.h"
 
 @interface _RTCameraRayEnumerator : NSEnumerator {
 @private
@@ -30,7 +31,7 @@
   if (self) {
     _resolution = (RTResolution){1280, 720};
     
-    [self translateBy:RTMakeVector(0.0, 0.5, 5.0)];
+    [self translateBy:RTMakeVector(0.0, 0.5, -5.0)];
     //rotate
     [self scaleBy:RTMakeVector(1.280, 0.720, 1.0)];
   }
@@ -43,7 +44,17 @@
 }
 
 - (RTRay *)rayAtX:(NSUInteger)x y:(NSUInteger)y {
-  return nil;
+  RTVector direction = RTMakeVector(0.0, 0.0, 1.0);
+  
+  CGFloat xOff = 0.5 - (1.0 * x) / _resolution.u;
+  CGFloat yOff = 0.5 - (1.0 * y) / _resolution.v;
+  
+  RTVector startPoint = RTMakeVector(xOff, yOff, -0.5);
+  
+  RTRay *ray = [[RTRay alloc] initWithStart:startPoint direction:direction];
+  [ray transformByMatrix:self.transformation];
+  
+  return [ray autorelease];
 }
 
 @end
