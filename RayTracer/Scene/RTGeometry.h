@@ -62,3 +62,11 @@ CGFloat RTVectorDotProduct(RTVector,RTVector);
 RTVector RTVectorCProduct(RTVector,RTVector);
 
 RTVector RTVectorMatrixMultiply(RTVector,RTMatrix);
+
+typedef struct {
+  RTVector origin;
+  RTVector size;
+} RTBounds;
+
+RTBounds RTMakeBounds(CGFloat x, CGFloat y, CGFloat z, CGFloat u, CGFloat v, CGFloat w);
+RTBounds RTMakeBoundsV(RTVector origin, RTVector size);

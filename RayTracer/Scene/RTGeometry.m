@@ -204,3 +204,10 @@ RTVector RTVectorMatrixMultiply(RTVector self, RTMatrix m) {
   );
 }
 
+RTBounds RTMakeBounds(CGFloat x, CGFloat y, CGFloat z, CGFloat u, CGFloat v, CGFloat w) {
+  return RTMakeBoundsV(RTMakeVector(x, y, z),RTMakeVector(u, v, w));
+}
+
+RTBounds RTMakeBoundsV(RTVector origin, RTVector size) {
+  return (RTBounds){origin,size};
+}
