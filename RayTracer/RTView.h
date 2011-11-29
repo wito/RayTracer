@@ -8,9 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class RTScene;
+
 @interface RTView : NSView
 
 @property (copy) NSImage *renderBuffer;
+@property (retain) RTScene *scene;
 
 - (IBAction)render:(id)sender;
 - (IBAction)renderToFile:(id)sender;

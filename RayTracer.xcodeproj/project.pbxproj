@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5CAEE16D1484D027000C3BA8 /* RTScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAEE16C1484D027000C3BA8 /* RTScene.m */; };
 		5CD7E2C41484165A00B121AE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CD7E2C31484165A00B121AE /* Cocoa.framework */; };
 		5CD7E2CE1484165A00B121AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5CD7E2CC1484165A00B121AE /* InfoPlist.strings */; };
 		5CD7E2D01484165A00B121AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7E2CF1484165A00B121AE /* main.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5CAEE16B1484D027000C3BA8 /* RTScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTScene.h; path = Scene/RTScene.h; sourceTree = "<group>"; };
+		5CAEE16C1484D027000C3BA8 /* RTScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTScene.m; path = Scene/RTScene.m; sourceTree = "<group>"; };
 		5CD7E2BF1484165A00B121AE /* RayTracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RayTracer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD7E2C31484165A00B121AE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		5CD7E2C61484165A00B121AE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -46,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5CAEE16F1484D02B000C3BA8 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				5CAEE16B1484D027000C3BA8 /* RTScene.h */,
+				5CAEE16C1484D027000C3BA8 /* RTScene.m */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
 		5CD7E2B41484165A00B121AE = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +102,7 @@
 				5CD7E2D81484165B00B121AE /* MainMenu.xib */,
 				5CD7E2E01484191600B121AE /* RTView.h */,
 				5CD7E2E11484191600B121AE /* RTView.m */,
+				5CAEE16F1484D02B000C3BA8 /* Scene */,
 				5CD7E2CA1484165A00B121AE /* Supporting Files */,
 			);
 			path = RayTracer;
@@ -174,6 +187,7 @@
 				5CD7E2D01484165A00B121AE /* main.m in Sources */,
 				5CD7E2D71484165A00B121AE /* RTAppDelegate.m in Sources */,
 				5CD7E2E21484191600B121AE /* RTView.m in Sources */,
+				5CAEE16D1484D027000C3BA8 /* RTScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +311,7 @@
 				5CD7E2DF1484165B00B121AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

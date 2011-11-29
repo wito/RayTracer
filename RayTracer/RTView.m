@@ -7,10 +7,12 @@
 //
 
 #import "RTView.h"
+#import "RTScene.h"
 
 @implementation RTView
 
 @synthesize renderBuffer = _renderBuffer;
+@synthesize scene = _scene;
 
 - (id)initWithFrame:(NSRect)frame {
   self = [super initWithFrame:frame];
