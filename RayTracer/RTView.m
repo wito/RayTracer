@@ -18,8 +18,7 @@
   if (self) {
     _renderBuffer = [[NSImage alloc] initWithSize:NSMakeSize(1280.0, 720.0)];
     
-    NSBitmapImageRep *_renderBufferRep = [[NSBitmapImageRep alloc] initWithBitmapDataPlanes:NULL pixelsWide:1280 pixelsHigh:720 bitsPerSample:8 samplesPerPixel:4 hasAlpha:YES isPlanar:NO colorSpaceName:NSDeviceRGBColorSpace bytesPerRow:5120 bitsPerPixel:32];
-    [_renderBufferRep autorelease];
+    NSBitmapImageRep *_renderBufferRep = [[[NSBitmapImageRep alloc] initWithBitmapDataPlanes:NULL pixelsWide:1280 pixelsHigh:720 bitsPerSample:8 samplesPerPixel:4 hasAlpha:YES isPlanar:NO colorSpaceName:NSDeviceRGBColorSpace bytesPerRow:5120 bitsPerPixel:32] autorelease];
     
     [_renderBuffer addRepresentation:_renderBufferRep];
   }
@@ -35,6 +34,20 @@
 }
 
 - (IBAction)renderToFile:(id)sender {
+  NSSavePanel *savePanel = [NSSavePanel savePanel];
+  
+  [savePanel setAllowedFileTypes:[NSArray arrayWithObject:@"png"]];
+  [savePanel setExtensionHidden:NO];
+  [savePanel setCanSelectHiddenExtension:YES];
+  [savePanel setNameFieldStringValue:@"render.png"];
+  
+  [savePanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result){
+    if (result == NSOKButton) {
+      NSBitmapImageRep *imageRep = [[self.renderBuffer representations] objectAtIndex:0];
+      NSData *pngData = [imageRep representationUsingType:NSPNGFileType properties:nil];
+      [pngData writeToURL:savePanel.URL atomically:YES];
+    }
+  }];
 }
 
 @end
