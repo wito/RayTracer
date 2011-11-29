@@ -42,4 +42,22 @@
   self.transformation = RTMatrixMultiply(self.transformation, transMatrix);
 }
 
+- (void)rotateBy:(RTVector)v {
+  RTMatrix rotMatrix = RTMatrixIdentity();
+  
+  rotMatrix.a1 = cos(v.y) * cos(v.z);
+  rotMatrix.a2 = -cos(v.x) * sin(v.z) + sin(v.x) * sin(v.y) * cos(v.z);
+  rotMatrix.a3 = sin(v.x) * sin(v.z) + cos(v.x) * sin(v.y) * sin(v.z);
+  
+  rotMatrix.b1 = cos(v.y) * sin(v.z);
+  rotMatrix.b2 = cos(v.x) * cos(v.z) + sin(v.x) * sin(v.y) * sin(v.z);
+  rotMatrix.b3 = -sin(v.x) * cos(v.z) + cos(v.x) * sin(v.y) * sin(v.z);
+  
+  rotMatrix.c1 = -sin(v.y);
+  rotMatrix.c2 = sin(v.x) * cos(v.y);
+  rotMatrix.c3 = cos(v.x) * cos(v.y);
+  
+  self.transformation = RTMatrixMultiply(self.transformation, rotMatrix);
+}
+
 @end

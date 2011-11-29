@@ -15,5 +15,6 @@
 
 - (void)scaleBy:(RTVector)v;
 - (void)translateBy:(RTVector)v;
+- (void)rotateBy:(RTVector)v;
 
 @end
