@@ -13,6 +13,7 @@
 		5CAEE17B1484E1E6000C3BA8 /* RTSphere.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAEE17A1484E1E6000C3BA8 /* RTSphere.m */; };
 		5CAEE17E1484E217000C3BA8 /* RTPrimitive.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAEE17D1484E217000C3BA8 /* RTPrimitive.m */; };
 		5CAEE1811484E3E1000C3BA8 /* RTRay.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAEE1801484E3E1000C3BA8 /* RTRay.m */; };
+		5CAEE1841484F81A000C3BA8 /* RTCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAEE1831484F81A000C3BA8 /* RTCamera.m */; };
 		5CD7E2C41484165A00B121AE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CD7E2C31484165A00B121AE /* Cocoa.framework */; };
 		5CD7E2CE1484165A00B121AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5CD7E2CC1484165A00B121AE /* InfoPlist.strings */; };
 		5CD7E2D01484165A00B121AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7E2CF1484165A00B121AE /* main.m */; };
@@ -35,6 +36,8 @@
 		5CAEE17D1484E217000C3BA8 /* RTPrimitive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTPrimitive.m; sourceTree = "<group>"; };
 		5CAEE17F1484E3E1000C3BA8 /* RTRay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTRay.h; sourceTree = "<group>"; };
 		5CAEE1801484E3E1000C3BA8 /* RTRay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTRay.m; sourceTree = "<group>"; };
+		5CAEE1821484F81A000C3BA8 /* RTCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCamera.h; sourceTree = "<group>"; };
+		5CAEE1831484F81A000C3BA8 /* RTCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTCamera.m; sourceTree = "<group>"; };
 		5CD7E2BF1484165A00B121AE /* RayTracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RayTracer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD7E2C31484165A00B121AE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		5CD7E2C61484165A00B121AE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -69,6 +72,8 @@
 			children = (
 				5CAEE16B1484D027000C3BA8 /* RTScene.h */,
 				5CAEE16C1484D027000C3BA8 /* RTScene.m */,
+				5CAEE1821484F81A000C3BA8 /* RTCamera.h */,
+				5CAEE1831484F81A000C3BA8 /* RTCamera.m */,
 				5CAEE1751484D358000C3BA8 /* RTGeometry.h */,
 				5CAEE1761484D358000C3BA8 /* RTGeometry.m */,
 				5CAEE1701484D1F5000C3BA8 /* RTSceneObject.h */,
@@ -226,6 +231,7 @@
 				5CAEE17B1484E1E6000C3BA8 /* RTSphere.m in Sources */,
 				5CAEE17E1484E217000C3BA8 /* RTPrimitive.m in Sources */,
 				5CAEE1811484E3E1000C3BA8 /* RTRay.m in Sources */,
+				5CAEE1841484F81A000C3BA8 /* RTCamera.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

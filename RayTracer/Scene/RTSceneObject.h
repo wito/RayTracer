@@ -13,4 +13,6 @@
 
 @property (assign) RTMatrix transformation;
 
+- (void)scaleBy:(RTVector)v;
+
 @end
