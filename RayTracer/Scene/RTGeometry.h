@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#define HORIZON 100000.0
+#define DELTA 0.0005
+
 typedef struct {
   CGFloat a1;
   CGFloat a2;
