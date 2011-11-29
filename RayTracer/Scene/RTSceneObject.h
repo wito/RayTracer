@@ -14,6 +14,7 @@
 @interface RTSceneObject : NSObject
 
 @property (assign) RTMatrix transformation;
+@property (readonly) RTMatrix inverseTransformation;
 
 - (void)scaleBy:(RTVector)v;
 - (void)translateBy:(RTVector)v;

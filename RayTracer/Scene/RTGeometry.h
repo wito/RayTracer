@@ -40,6 +40,9 @@ RTMatrix RTMatrixTranspose(RTMatrix);
 
 RTMatrix RTMatrixMultiply(RTMatrix,RTMatrix);
 
+CGFloat RTMatrixDeterminant(RTMatrix);
+RTMatrix RTMatrixInvert(RTMatrix);
+
 typedef struct {
   CGFloat x;
   CGFloat y;

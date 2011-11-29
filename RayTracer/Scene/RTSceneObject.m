@@ -11,6 +11,7 @@
 @implementation RTSceneObject
 
 @synthesize transformation = _transformation;
+@dynamic inverseTransformation;
 
 - (id)init {
   self = [super init];
@@ -62,6 +63,10 @@
 
 - (CGFloat)intersectsRay:(RTRay *)ray atPoint:(RTVector *)intersection normal:(RTVector *)normal {
   return -1.0;
+}
+
+- (RTMatrix)inverseTransformation {
+  return RTMatrixInvert(self.transformation);
 }
 
 @end

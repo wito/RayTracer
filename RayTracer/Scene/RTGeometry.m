@@ -152,6 +152,43 @@ RTMatrix RTMatrixMultiply(RTMatrix A, RTMatrix B) {
   return retval;
 }
 
+
+CGFloat RTMatrixDeterminant(RTMatrix self) {
+  return 
+  self.a4*self.b3*self.c2*self.d1 - self.a3*self.b4*self.c2*self.d1 - self.a4*self.b2*self.c3*self.d1 + self.a2*self.b4*self.c3*self.d1+
+  self.a3*self.b2*self.c4*self.d1 - self.a2*self.b3*self.c4*self.d1 - self.a4*self.b3*self.c1*self.d2 + self.a3*self.b4*self.c1*self.d2+
+  self.a4*self.b1*self.c3*self.d2 - self.a1*self.b4*self.c3*self.d2 - self.a3*self.b1*self.c4*self.d2 + self.a1*self.b3*self.c4*self.d2+
+  self.a4*self.b2*self.c1*self.d3 - self.a2*self.b4*self.c1*self.d3 - self.a4*self.b1*self.c2*self.d3 + self.a1*self.b4*self.c2*self.d3+
+  self.a2*self.b1*self.c4*self.d3 - self.a1*self.b2*self.c4*self.d3 - self.a3*self.b2*self.c1*self.d4 + self.a2*self.b3*self.c1*self.d4+
+  self.a3*self.b1*self.c2*self.d4 - self.a1*self.b3*self.c2*self.d4 - self.a2*self.b1*self.c3*self.d4 + self.a1*self.b2*self.c3*self.d4;
+}
+
+RTMatrix RTMatrixInvert(RTMatrix self) {
+  RTMatrix retval;
+  
+  retval.a1 = self.b3*self.c4*self.d2 - self.b4*self.c3*self.d2 + self.b4*self.c2*self.d3 - self.b2*self.c4*self.d3 - self.b3*self.c2*self.d4 + self.b2*self.c3*self.d4;
+  retval.a2 = self.a4*self.c3*self.d2 - self.a3*self.c4*self.d2 - self.a4*self.c2*self.d3 + self.a2*self.c4*self.d3 + self.a3*self.c2*self.d4 - self.a2*self.c3*self.d4;
+  retval.a3 = self.a3*self.b4*self.d2 - self.a4*self.b3*self.d2 + self.a4*self.b2*self.d3 - self.a2*self.b4*self.d3 - self.a3*self.b2*self.d4 + self.a2*self.b3*self.d4;
+  retval.a4 = self.a4*self.b3*self.c2 - self.a3*self.b4*self.c2 - self.a4*self.b2*self.c3 + self.a2*self.b4*self.c3 + self.a3*self.b2*self.c4 - self.a2*self.b3*self.c4;
+  retval.b1 = self.b4*self.c3*self.d1 - self.b3*self.c4*self.d1 - self.b4*self.c1*self.d3 + self.b1*self.c4*self.d3 + self.b3*self.c1*self.d4 - self.b1*self.c3*self.d4;
+  retval.b2 = self.a3*self.c4*self.d1 - self.a4*self.c3*self.d1 + self.a4*self.c1*self.d3 - self.a1*self.c4*self.d3 - self.a3*self.c1*self.d4 + self.a1*self.c3*self.d4;
+  retval.b3 = self.a4*self.b3*self.d1 - self.a3*self.b4*self.d1 - self.a4*self.b1*self.d3 + self.a1*self.b4*self.d3 + self.a3*self.b1*self.d4 - self.a1*self.b3*self.d4;
+  retval.b4 = self.a3*self.b4*self.c1 - self.a4*self.b3*self.c1 + self.a4*self.b1*self.c3 - self.a1*self.b4*self.c3 - self.a3*self.b1*self.c4 + self.a1*self.b3*self.c4;
+  retval.c1 = self.b2*self.c4*self.d1 - self.b4*self.c2*self.d1 + self.b4*self.c1*self.d2 - self.b1*self.c4*self.d2 - self.b2*self.c1*self.d4 + self.b1*self.c2*self.d4;
+  retval.c2 = self.a4*self.c2*self.d1 - self.a2*self.c4*self.d1 - self.a4*self.c1*self.d2 + self.a1*self.c4*self.d2 + self.a2*self.c1*self.d4 - self.a1*self.c2*self.d4;
+  retval.c3 = self.a2*self.b4*self.d1 - self.a4*self.b2*self.d1 + self.a4*self.b1*self.d2 - self.a1*self.b4*self.d2 - self.a2*self.b1*self.d4 + self.a1*self.b2*self.d4;
+  retval.c4 = self.a4*self.b2*self.c1 - self.a2*self.b4*self.c1 - self.a4*self.b1*self.c2 + self.a1*self.b4*self.c2 + self.a2*self.b1*self.c4 - self.a1*self.b2*self.c4;
+  retval.d1 = self.b3*self.c2*self.d1 - self.b2*self.c3*self.d1 - self.b3*self.c1*self.d2 + self.b1*self.c3*self.d2 + self.b2*self.c1*self.d3 - self.b1*self.c2*self.d3;
+  retval.d2 = self.a2*self.c3*self.d1 - self.a3*self.c2*self.d1 + self.a3*self.c1*self.d2 - self.a1*self.c3*self.d2 - self.a2*self.c1*self.d3 + self.a1*self.c2*self.d3;
+  retval.d3 = self.a3*self.b2*self.d1 - self.a2*self.b3*self.d1 - self.a3*self.b1*self.d2 + self.a1*self.b3*self.d2 + self.a2*self.b1*self.d3 - self.a1*self.b2*self.d3;
+  retval.d4 = self.a2*self.b3*self.c1 - self.a3*self.b2*self.c1 + self.a3*self.b1*self.c2 - self.a1*self.b3*self.c2 - self.a2*self.b1*self.c3 + self.a1*self.b2*self.c3;
+  
+  retval = RTMatrixScalarMultiply(retval, 1/RTMatrixDeterminant(self));
+  
+  return retval;
+}
+
+
 RTVector RTMakeVector(CGFloat x, CGFloat y, CGFloat z) {
   return (RTVector){ x, y, z };
 }
