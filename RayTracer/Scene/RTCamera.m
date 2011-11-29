@@ -54,6 +54,9 @@
   RTRay *ray = [[RTRay alloc] initWithStart:startPoint direction:direction];
   [ray transformByMatrix:self.transformation];
   
+  ray.x = x;
+  ray.y = y;
+  
   return [ray autorelease];
 }
 

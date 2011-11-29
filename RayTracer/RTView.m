@@ -9,6 +9,10 @@
 #import "RTView.h"
 #import "RTScene.h"
 
+#import "RTSphere.h"
+#import "RTCamera.h"
+#import "RTRay.h"
+
 @implementation RTView
 
 @synthesize renderBuffer = _renderBuffer;
@@ -23,6 +27,8 @@
     NSBitmapImageRep *_renderBufferRep = [[[NSBitmapImageRep alloc] initWithBitmapDataPlanes:NULL pixelsWide:1280 pixelsHigh:720 bitsPerSample:8 samplesPerPixel:4 hasAlpha:YES isPlanar:NO colorSpaceName:NSDeviceRGBColorSpace bytesPerRow:5120 bitsPerPixel:32] autorelease];
     
     [_renderBuffer addRepresentation:_renderBufferRep];
+    
+    _scene = [[RTScene alloc] init];
   }
   
   return self;
@@ -33,6 +39,21 @@
 }
 
 - (IBAction)render:(id)sender {
+  RTSphere *sphere = [[[RTSphere alloc] init] autorelease];
+
+  NSBitmapImageRep *_renderBufferRep = [[self.renderBuffer representations] objectAtIndex:0];
+
+  NSColor *red = [NSColor colorWithDeviceRed:1.0 green:0.0 blue:0.0 alpha:1.0];
+
+  for (RTRay *ray in self.scene.camera.rayEnumerator) {
+    CGFloat t = [sphere intersectsRay:ray atPoint:NULL normal:NULL];
+    
+    if (t >= 0.0005) {
+      [_renderBufferRep setColor:red atX:ray.x y:ray.y];
+    }
+  }
+
+  [self setNeedsDisplay:YES];
 }
 
 - (IBAction)renderToFile:(id)sender {

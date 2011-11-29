@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class RTCamera;
+
 @interface RTScene : NSObject
 
+@property (readonly,retain) RTCamera *camera;
 @property (readonly,retain) NSMutableArray *objects;
 
 @end

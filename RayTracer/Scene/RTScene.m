@@ -7,16 +7,19 @@
 //
 
 #import "RTScene.h"
+#import "RTCamera.h"
 
 @implementation RTScene
 
 @synthesize objects = _objects;
+@synthesize camera = _camera;
 
 - (id)init {
   self = [super init];
   
   if (self) {
     _objects = [[NSMutableArray alloc] init];
+    _camera = [RTCamera new];
   }
   
   return self;

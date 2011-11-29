@@ -14,6 +14,9 @@
 @property (assign) RTVector start;
 @property (assign) RTVector end;
 
+@property (assign) NSUInteger x;
+@property (assign) NSUInteger y;
+
 @property (assign,readonly) RTVector direction;
 
 - (id)initWithStart:(RTVector)s end:(RTVector)e;

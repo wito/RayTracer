@@ -11,6 +11,7 @@
 @implementation RTRay
 
 @synthesize start = _start, end = _end;
+@synthesize x, y;
 @dynamic direction;
 
 - (id)initWithStart:(RTVector)s end:(RTVector)e {
@@ -48,6 +49,10 @@
 
 - (void)lengthen:(CGFloat)factor {
   self.end = RTVectorAddition(self.start, RTVectorMultiply(self.direction, factor));
+}
+
+- (NSString *)description {
+  return [NSString stringWithFormat:@"%@: {%f, %f, %f}->{%f, %f, %f} ({%f, %f, %f}); x = %lu, y = %lu", [super description], self.start.x, self.start.y, self.start.z, self.end.x, self.end.y, self.end.z, self.direction.x, self.direction.y, self.direction.z, self.x, self.y];
 }
 
 @end
