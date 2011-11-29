@@ -10,4 +10,6 @@
 
 @interface RTScene : NSObject
 
+@property (readonly,retain) NSMutableArray *objects;
+
 @end

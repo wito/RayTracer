@@ -10,4 +10,22 @@
 
 @implementation RTScene
 
+@synthesize objects = _objects;
+
+- (id)init {
+  self = [super init];
+  
+  if (self) {
+    _objects = [[NSMutableArray alloc] init];
+  }
+  
+  return self;
+}
+
+- (void)dealloc {
+  [_objects release];
+  
+  [super dealloc];
+}
+
 @end
