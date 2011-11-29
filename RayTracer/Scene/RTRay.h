@@ -16,6 +16,9 @@
 
 @property (assign,readonly) RTVector direction;
 
+- (id)initWithStart:(RTVector)s end:(RTVector)e;
+- (id)initWithStart:(RTVector)s direction:(RTVector)d;
+
 - (RTRay *)rayByTransformingByMatrix:(RTMatrix)transformation;
 - (void)transformByMatrix:(RTMatrix)transformation;
 

@@ -13,6 +13,21 @@
 @synthesize start = _start, end = _end;
 @dynamic direction;
 
+- (id)initWithStart:(RTVector)s end:(RTVector)e {
+  self = [super init];
+  
+  if (self) {
+    _start = s;
+    _end = e;
+  }
+  
+  return self;
+}
+
+- (id)initWithStart:(RTVector)s direction:(RTVector)d {
+  return [self initWithStart:s end:RTVectorAddition(s,d)];
+}
+
 - (RTVector)direction {
   return RTVectorSubtraction(self.end, self.start);
 }
