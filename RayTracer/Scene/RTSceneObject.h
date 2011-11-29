@@ -11,14 +11,6 @@
 
 @interface RTSceneObject : NSObject
 
-@property (assign) RTVector scale;
-@property (assign) RTVector translate;
-@property (assign) RTVector rotate;
-
-- (void)scaleBy:(RTVector)v;
-- (void)translateBy:(RTVector)v;
-- (void)rotateBy:(RTVector)v;
-
-@property (readonly,assign) RTBounds bounds;
+@property (assign) RTMatrix transformation;
 
 @end
