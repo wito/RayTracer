@@ -54,41 +54,63 @@
   return self;
 }
 
-- (BOOL)renderToBitmapImageRep:(NSBitmapImageRep *)_renderBufferRep {
-  RTSceneObject *sphere = [self.objects objectAtIndex:0];
-  RTLight *light = [self.lights objectAtIndex:0];
-  
-  NSColor *black = [NSColor colorWithDeviceRed:0.0 green:0.0 blue:0.0 alpha:1.0];
+- (BOOL)renderToBitmapImageRep:(NSBitmapImageRep *)_renderBufferRep {  
   NSColor *transparent = [NSColor colorWithDeviceWhite:0.0 alpha:0.0];
   
   RTVector intersection, normal;
   RTMaterial *material;
   
   for (RTRay *ray in self.camera.rayEnumerator) {
-    CGFloat t = [sphere intersectsRay:ray atPoint:&intersection normal:&normal material:&material];
+    CGFloat bestHit = INFINITY;
+    RTSceneObject *bestObject = nil;
     
-    if (t >= 0.0) {
-      RTVector lightLocation = RTVectorMatrixMultiply(RTMakeVector(0.0, 0.0, 0.0), light.transformation);
-      RTRay *lightRay = [[RTRay alloc] initWithStart:RTVectorAddition(intersection,RTVectorMultiply(normal, 0.0005)) end:lightLocation];
+    for (RTSceneObject *object in self.objects) {
+      CGFloat t = [object intersectsRay:ray atPoint:NULL normal:NULL material:NULL];
       
-      if ([sphere intersectsRay:lightRay atPoint:NULL normal:NULL material:NULL] <= 0.0) {
-        RTVector L, N, R, V;
-        
-        L = RTVectorUnit(lightRay.direction);
-        N = normal;
-        
-        V = RTVectorUnit(ray.trace);
-        R = RTVectorUnit(RTVectorSubtraction(RTVectorMultiply(N, 2 * RTVectorDotProduct(L,N)),L));
-        
-        CGFloat Ir = material.diffuse.redComponent * light.material.diffuse.redComponent * RTVectorDotProduct(L, N) + material.specular.redComponent * light.material.specular.redComponent * pow(RTVectorDotProduct(R, V),material.shine);
-        CGFloat Ig = material.diffuse.greenComponent * light.material.diffuse.greenComponent * RTVectorDotProduct(L, N) + material.specular.greenComponent * light.material.specular.greenComponent * pow(RTVectorDotProduct(R, V),material.shine);
-        CGFloat Ib = material.diffuse.blueComponent * light.material.diffuse.blueComponent * RTVectorDotProduct(L, N) + material.specular.blueComponent * light.material.specular.blueComponent * pow(RTVectorDotProduct(R, V),material.shine);
-        
-        
-        [_renderBufferRep setColor:[NSColor colorWithDeviceRed:Ir green:Ig blue:Ib alpha:1.0] atX:ray.x y:ray.y];
-      } else {
-        [_renderBufferRep setColor:black atX:ray.x y:ray.y];
+      if (t < bestHit && t >= 0.0) {
+        bestObject = object;
       }
+    }
+    
+    if (bestObject) {
+      [bestObject intersectsRay:ray atPoint:&intersection normal:&normal material:&material];
+      
+      CGFloat Ir = 0.0;
+      CGFloat Ig = 0.0;
+      CGFloat Ib = 0.0;
+      
+      for (RTLight *light in self.lights) {
+        
+        RTVector lightLocation = RTVectorMatrixMultiply(RTMakeVector(0.0, 0.0, 0.0), light.transformation);
+        RTRay *lightRay = [[RTRay alloc] initWithStart:RTVectorAddition(intersection,RTVectorMultiply(normal, 0.0005)) end:lightLocation];
+        
+        CGFloat shadow = 0.0;
+        
+        for (RTSceneObject *object in self.objects) {
+          CGFloat t = [object intersectsRay:lightRay atPoint:NULL normal:NULL material:NULL];
+          
+          if (t > 0.0) {
+            shadow = 10.0;
+            break;
+          }
+        }
+        
+        if (shadow <= 1.0) {
+          RTVector L, N, R, V;
+          
+          L = RTVectorUnit(lightRay.direction);
+          N = normal;
+          
+          V = RTVectorUnit(ray.trace);
+          R = RTVectorUnit(RTVectorSubtraction(RTVectorMultiply(N, 2 * RTVectorDotProduct(L,N)),L));
+          
+          Ir += material.diffuse.redComponent * light.material.diffuse.redComponent * RTVectorDotProduct(L, N) + material.specular.redComponent * light.material.specular.redComponent * pow(RTVectorDotProduct(R, V),material.shine);
+          Ig += material.diffuse.greenComponent * light.material.diffuse.greenComponent * RTVectorDotProduct(L, N) + material.specular.greenComponent * light.material.specular.greenComponent * pow(RTVectorDotProduct(R, V),material.shine);
+          Ib += material.diffuse.blueComponent * light.material.diffuse.blueComponent * RTVectorDotProduct(L, N) + material.specular.blueComponent * light.material.specular.blueComponent * pow(RTVectorDotProduct(R, V),material.shine);
+        }
+      }
+      
+      [_renderBufferRep setColor:[NSColor colorWithDeviceRed:Ir green:Ig blue:Ib alpha:1.0] atX:ray.x y:ray.y];
     } else {
       [_renderBufferRep setColor:transparent atX:ray.x y:ray.y];
     }
