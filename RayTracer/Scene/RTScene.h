@@ -14,5 +14,6 @@
 
 @property (readonly,retain) RTCamera *camera;
 @property (readonly,retain) NSMutableArray *objects;
+@property (readonly,retain) NSMutableArray *lights;
 
 @end
