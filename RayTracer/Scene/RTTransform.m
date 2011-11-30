@@ -48,6 +48,14 @@
   return [super init];
 }
 
+- (RTMatrix)matrixForDisplacement {
+  return self.inverse;
+}
+
+- (RTMatrix)matrixForNormal {
+  return self.matrix;
+}
+
 @end
 
 @implementation _RTScaleTransform
@@ -68,6 +76,10 @@
   return self;
 }
 
+- (RTMatrix)matrixForNormal {
+  return self.inverse;
+}
+
 @end
 
 @implementation _RTTranslateTransform
@@ -86,6 +98,14 @@
   }
   
   return self;
+}
+
+- (RTMatrix)matrixForDisplacement {
+  return RTMatrixIdentity();
+}
+
+- (RTMatrix)matrixForNormal {
+  return self.matrixForDisplacement;
 }
 
 @end

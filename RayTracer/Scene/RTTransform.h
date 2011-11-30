@@ -22,4 +22,7 @@
 + (RTTransform *)transformWithTranslation:(RTVector)v;
 + (RTTransform *)transformWithScaling:(RTVector)v;
 
+- (RTMatrix)matrixForNormal;
+- (RTMatrix)matrixForDisplacement;
+
 @end

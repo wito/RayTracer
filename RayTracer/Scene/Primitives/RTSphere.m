@@ -63,7 +63,7 @@
     
     if (normal) {
       RTVector normal_o = RTVectorUnit(RTVectorSubtraction(isect_o, RTMakeVector(0.0, 0.0, 0.0)));
-      RTVector normal_w = RTVectorUnit(RTVectorMatrixMultiply(normal_o, self.transformation));
+      RTVector normal_w = RTVectorUnit(RTVectorMatrixMultiply(normal_o, self.transformationForNormal));
       
       *normal = normal_w;
     }

@@ -63,4 +63,24 @@
   return retval;
 }
 
+- (RTMatrix)transformationForNormal {
+  RTMatrix retval = RTMatrixIdentity();
+  
+  for (RTTransform *transform in [self.transforms objectEnumerator]) {
+    retval = RTMatrixMultiply(retval, transform.matrixForNormal);
+  }
+  
+  return retval;
+}
+
+- (RTMatrix)transformationForDisplacement {
+  RTMatrix retval = RTMatrixIdentity();
+  
+  for (RTTransform *transform in [self.transforms reverseObjectEnumerator]) {
+    retval = RTMatrixMultiply(retval, transform.matrixForDisplacement);
+  }
+  
+  return retval;
+}
+
 @end

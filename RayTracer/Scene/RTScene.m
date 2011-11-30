@@ -36,10 +36,33 @@
     blueSpec.specular = [NSColor colorWithDeviceRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     blueSpec.shine = 1.0;
     
+    [sphere addTransform:[RTTransform transformWithTranslation:RTMakeVector(-0.5, 0.5, 0.0)]];
     [sphere setMaterial:blueSpec];
 
     [_objects addObject:sphere];
+    
+    sphere = [[[RTSphere alloc] init] autorelease];
+    
+    [sphere addTransform:[RTTransform transformWithTranslation:RTMakeVector(-0.5, -0.5, 0.0)]];
+    sphere.material = blueSpec;
+    
+    [_objects addObject:sphere];
         
+    sphere = [[[RTSphere alloc] init] autorelease];
+    
+    [sphere addTransform:[RTTransform transformWithTranslation:RTMakeVector(0.5, -0.5, 0.0)]];
+    [sphere addTransform:[RTTransform transformWithScaling:RTMakeVector(0.2, 0.2, 0.2)]];
+    sphere.material = blueSpec;
+    
+    [_objects addObject:sphere];
+    
+    sphere = [[[RTSphere alloc] init] autorelease];
+    
+    [sphere addTransform:[RTTransform transformWithTranslation:RTMakeVector(0.5, 0.5, 0.0)]];
+    sphere.material = blueSpec;
+    
+    [_objects addObject:sphere];
+    
     RTLight *light = [[[RTLight alloc] init] autorelease];
     RTMaterial *whiteSpec = [[RTMaterial new] autorelease];
     
@@ -47,7 +70,7 @@
     whiteSpec.diffuse = [[NSColor colorWithDeviceWhite:1.0 alpha:1.0] colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]];
     
     light.material = whiteSpec;
-    [light addTransform:[RTTransform transformWithTranslation:RTMakeVector(5.0, 5.0, -2.5)]];
+    [light addTransform:[RTTransform transformWithTranslation:RTMakeVector(0.0, 0.0, -2.5)]];
     [_lights addObject:light];
     
   }

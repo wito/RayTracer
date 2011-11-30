@@ -24,4 +24,7 @@
 - (RTMatrix)transformation;
 - (RTMatrix)inverseTransformation;
 
+- (RTMatrix)transformationForNormal;
+- (RTMatrix)transformationForDisplacement;
+
 @end
