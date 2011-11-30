@@ -12,7 +12,7 @@
 
 @synthesize start = _start, end = _end;
 @synthesize x, y;
-@dynamic direction;
+@dynamic direction,trace;
 
 - (id)initWithStart:(RTVector)s end:(RTVector)e {
   self = [super init];
@@ -31,6 +31,10 @@
 
 - (RTVector)direction {
   return RTVectorSubtraction(self.end, self.start);
+}
+
+- (RTVector)trace {
+  return RTVectorSubtraction(self.start, self.end);
 }
 
 - (void)transformByMatrix:(RTMatrix)transformation {

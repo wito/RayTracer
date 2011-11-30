@@ -18,6 +18,7 @@
 @property (assign) NSUInteger y;
 
 @property (assign,readonly) RTVector direction;
+@property (assign,readonly) RTVector trace;
 
 - (id)initWithStart:(RTVector)s end:(RTVector)e;
 - (id)initWithStart:(RTVector)s direction:(RTVector)d;
