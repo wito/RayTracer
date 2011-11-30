@@ -19,6 +19,7 @@
 - (void)scaleBy:(RTVector)v;
 - (void)translateBy:(RTVector)v;
 - (void)rotateBy:(RTVector)v;
+- (void)perspectiveBy:(RTVector)v;
 
 - (CGFloat)intersectsRay:(RTRay *)ray atPoint:(RTVector *)intersection normal:(RTVector *)normal;
 

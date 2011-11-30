@@ -61,6 +61,16 @@
   self.transformation = RTMatrixMultiply(self.transformation, rotMatrix);
 }
 
+- (void)perspectiveBy:(RTVector)v {
+  RTMatrix perpMatrix = RTMatrixIdentity();
+  
+  perpMatrix.d1 = v.x;
+  perpMatrix.d2 = v.y;
+  perpMatrix.d3 = v.z;
+  
+  self.transformation = RTMatrixMultiply(self.transformation, perpMatrix);
+}
+
 - (CGFloat)intersectsRay:(RTRay *)ray atPoint:(RTVector *)intersection normal:(RTVector *)normal {
   return -1.0;
 }
