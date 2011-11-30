@@ -10,7 +10,6 @@
 
 @implementation RTMaterial
 
-@synthesize color = _color;
-@synthesize specular, diffuse;
+@synthesize specular, diffuse, shine;
 
 @end

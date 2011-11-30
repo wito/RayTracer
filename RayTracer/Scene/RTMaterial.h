@@ -10,9 +10,8 @@
 
 @interface RTMaterial : NSObject
 
-@property (retain) NSColor *color;
-
-@property (assign) CGFloat specular;
-@property (assign) CGFloat diffuse;
+@property (retain) NSColor *specular;
+@property (retain) NSColor *diffuse;
+@property (assign) CGFloat shine;
 
 @end
