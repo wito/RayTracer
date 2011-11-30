@@ -9,6 +9,8 @@
 #import "RTCamera.h"
 #import "RTRay.h"
 
+#import "RTTransform.h"
+
 @interface _RTCameraRayEnumerator : NSEnumerator {
 @private
   RTCamera *_camera;
@@ -31,9 +33,8 @@
   if (self) {
     _resolution = (RTResolution){1280, 720};
     
-    [self translateBy:RTMakeVector(0.0, 0.5, -10.0)];
-    //rotate
-    [self scaleBy:RTMakeVector(1.280 * 3, 0.720 * 3, 1.0)];
+    [self addTransform:[RTTransform transformWithTranslation:RTMakeVector(0.0, 0.5, -10.0)]];
+    [self addTransform:[RTTransform transformWithScaling:RTMakeVector(1.280 * 3, 0.720 * 3, 1.0)]];
   }
   
   return self;

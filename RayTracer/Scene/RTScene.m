@@ -13,6 +13,7 @@
 #import "RTLight.h"
 #import "RTMaterial.h"
 #import "RTRay.h"
+#import "RTTransform.h"
 
 @implementation RTScene
 
@@ -38,16 +39,7 @@
     [sphere setMaterial:blueSpec];
 
     [_objects addObject:sphere];
-    
-    sphere = [[[RTSphere alloc] init] autorelease];
-    
-    [sphere setMaterial:blueSpec];
-    
-    [sphere translateBy:RTMakeVector(0.0, 1.1, 0.0)];
-    [sphere scaleBy:RTMakeVector(0.9, 0.9, 0.9)];
-    
-    [_objects addObject:sphere];
-    
+        
     RTLight *light = [[[RTLight alloc] init] autorelease];
     RTMaterial *whiteSpec = [[RTMaterial new] autorelease];
     
@@ -55,7 +47,7 @@
     whiteSpec.diffuse = [[NSColor colorWithDeviceWhite:1.0 alpha:1.0] colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]];
     
     light.material = whiteSpec;
-    [light translateBy:RTMakeVector(5.0, 5.0, -2.5)];
+    [light addTransform:[RTTransform transformWithTranslation:RTMakeVector(5.0, 5.0, -2.5)]];
     [_lights addObject:light];
     
   }

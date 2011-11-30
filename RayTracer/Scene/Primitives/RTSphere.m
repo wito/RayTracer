@@ -25,14 +25,14 @@
   B = 2 * RTVectorDotProduct(D,O);
   C = RTVectorDotProduct(O, O) - 0.25;
   
-  CGFloat BB4AC = sqrt(B * B - 4 * A * C);
+  CGFloat BB4AC = B * B - 4 * A * C;
   
   if (BB4AC < 0.0) {
     return -1.0;
   }
   
-  CGFloat t0 = (-B - BB4AC) / 2 * A;
-  CGFloat t1 = (-B + BB4AC) / 2 * A;
+  CGFloat t0 = (-B - sqrt(BB4AC)) / 2 * A;
+  CGFloat t1 = (-B + sqrt(BB4AC)) / 2 * A;
   
   if (t0 > t1) {
     CGFloat tmp = t0;
@@ -63,9 +63,9 @@
     
     if (normal) {
       RTVector normal_o = RTVectorUnit(RTVectorSubtraction(isect_o, RTMakeVector(0.0, 0.0, 0.0)));
-      //RTVector normal_w = RTVectorUnit(RTVectorMatrixMultiply(normal_o, self.transformation));
+      RTVector normal_w = RTVectorUnit(RTVectorMatrixMultiply(normal_o, self.transformation));
       
-      *normal = normal_o;
+      *normal = normal_w;
     }
   }
   
