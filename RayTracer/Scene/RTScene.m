@@ -31,11 +31,20 @@
     RTSphere *sphere = [[[RTSphere alloc] init] autorelease];
     RTMaterial *blueSpec = [[RTMaterial new] autorelease];
     
-    blueSpec.diffuse = [NSColor colorWithDeviceRed:1.0 green:0.2 blue:1.0 alpha:1.0];
+    blueSpec.diffuse = [NSColor colorWithDeviceRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     blueSpec.specular = [NSColor colorWithDeviceRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     blueSpec.shine = 1.0;
     
     [sphere setMaterial:blueSpec];
+
+    [_objects addObject:sphere];
+    
+    sphere = [[[RTSphere alloc] init] autorelease];
+    
+    [sphere setMaterial:blueSpec];
+    
+    [sphere translateBy:RTMakeVector(0.0, 1.1, 0.0)];
+    [sphere scaleBy:RTMakeVector(0.9, 0.9, 0.9)];
     
     [_objects addObject:sphere];
     
@@ -80,7 +89,6 @@
       CGFloat Ib = 0.0;
       
       for (RTLight *light in self.lights) {
-        
         RTVector lightLocation = RTVectorMatrixMultiply(RTMakeVector(0.0, 0.0, 0.0), light.transformation);
         RTRay *lightRay = [[RTRay alloc] initWithStart:RTVectorAddition(intersection,RTVectorMultiply(normal, 0.0005)) end:lightLocation];
         
@@ -89,7 +97,7 @@
         for (RTSceneObject *object in self.objects) {
           CGFloat t = [object intersectsRay:lightRay atPoint:NULL normal:NULL material:NULL];
           
-          if (t > 0.0) {
+          if (t >= 0.0) {
             shadow = 10.0;
             break;
           }
@@ -103,7 +111,7 @@
           
           V = RTVectorUnit(ray.trace);
           R = RTVectorUnit(RTVectorSubtraction(RTVectorMultiply(N, 2 * RTVectorDotProduct(L,N)),L));
-          
+
           Ir += material.diffuse.redComponent * light.material.diffuse.redComponent * RTVectorDotProduct(L, N) + material.specular.redComponent * light.material.specular.redComponent * pow(RTVectorDotProduct(R, V),material.shine);
           Ig += material.diffuse.greenComponent * light.material.diffuse.greenComponent * RTVectorDotProduct(L, N) + material.specular.greenComponent * light.material.specular.greenComponent * pow(RTVectorDotProduct(R, V),material.shine);
           Ib += material.diffuse.blueComponent * light.material.diffuse.blueComponent * RTVectorDotProduct(L, N) + material.specular.blueComponent * light.material.specular.blueComponent * pow(RTVectorDotProduct(R, V),material.shine);

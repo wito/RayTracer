@@ -57,14 +57,15 @@
   }
   
   if (intersection) {
-    [objectRay lengthen:t];
-    
-    RTVector isect_o = objectRay.end;
+    RTVector isect_o = RTVectorAddition(objectRay.start, RTVectorMultiply(objectRay.direction, t));
     
     *intersection = RTVectorMatrixMultiply(isect_o, self.transformation);
     
     if (normal) {
-      *normal = RTVectorUnit(RTVectorMatrixMultiply(RTVectorUnit(RTVectorSubtraction(isect_o, RTMakeVector(0.0, 0.0, 0.0))), self.transformation));
+      RTVector normal_o = RTVectorUnit(RTVectorSubtraction(isect_o, RTMakeVector(0.0, 0.0, 0.0)));
+      //RTVector normal_w = RTVectorUnit(RTVectorMatrixMultiply(normal_o, self.transformation));
+      
+      *normal = normal_o;
     }
   }
   
