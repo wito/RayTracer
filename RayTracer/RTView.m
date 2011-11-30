@@ -57,7 +57,6 @@
   whiteSpec.diffuse = [[NSColor colorWithDeviceWhite:1.0 alpha:1.0] colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]];
   
   light.material = whiteSpec;
-  light.intensity = 1.0;
   [light translateBy:RTMakeVector(5.0, 5.0, -2.5)];
 
   NSBitmapImageRep *_renderBufferRep = [[self.renderBuffer representations] objectAtIndex:0];

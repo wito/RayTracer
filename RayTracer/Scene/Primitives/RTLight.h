@@ -10,6 +10,4 @@
 
 @interface RTLight : RTPrimitive
 
-@property (assign) CGFloat intensity;
-
 @end

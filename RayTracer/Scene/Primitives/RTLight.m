@@ -10,6 +10,4 @@
 
 @implementation RTLight
 
-@synthesize intensity;
-
 @end
