@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C706FE11486438300EA3AC7 /* RTMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C706FE01486438300EA3AC7 /* RTMaterial.m */; };
+		5C706FE5148644BE00EA3AC7 /* RTLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C706FE4148644BE00EA3AC7 /* RTLight.m */; };
 		5CAEE16D1484D027000C3BA8 /* RTScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAEE16C1484D027000C3BA8 /* RTScene.m */; };
 		5CAEE1721484D1F5000C3BA8 /* RTSceneObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAEE1711484D1F5000C3BA8 /* RTSceneObject.m */; };
 		5CAEE1771484D358000C3BA8 /* RTGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAEE1761484D358000C3BA8 /* RTGeometry.m */; };
@@ -27,6 +28,8 @@
 /* Begin PBXFileReference section */
 		5C706FDF1486438300EA3AC7 /* RTMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMaterial.h; sourceTree = "<group>"; };
 		5C706FE01486438300EA3AC7 /* RTMaterial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTMaterial.m; sourceTree = "<group>"; };
+		5C706FE3148644BE00EA3AC7 /* RTLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLight.h; sourceTree = "<group>"; };
+		5C706FE4148644BE00EA3AC7 /* RTLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTLight.m; sourceTree = "<group>"; };
 		5CAEE16B1484D027000C3BA8 /* RTScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTScene.h; sourceTree = "<group>"; };
 		5CAEE16C1484D027000C3BA8 /* RTScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTScene.m; sourceTree = "<group>"; };
 		5CAEE1701484D1F5000C3BA8 /* RTSceneObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSceneObject.h; sourceTree = "<group>"; };
@@ -97,6 +100,8 @@
 				5CAEE17D1484E217000C3BA8 /* RTPrimitive.m */,
 				5CAEE1791484E1E6000C3BA8 /* RTSphere.h */,
 				5CAEE17A1484E1E6000C3BA8 /* RTSphere.m */,
+				5C706FE3148644BE00EA3AC7 /* RTLight.h */,
+				5C706FE4148644BE00EA3AC7 /* RTLight.m */,
 			);
 			path = Primitives;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 				5CAEE1811484E3E1000C3BA8 /* RTRay.m in Sources */,
 				5CAEE1841484F81A000C3BA8 /* RTCamera.m in Sources */,
 				5C706FE11486438300EA3AC7 /* RTMaterial.m in Sources */,
+				5C706FE5148644BE00EA3AC7 /* RTLight.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
