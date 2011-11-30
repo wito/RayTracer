@@ -12,7 +12,7 @@
 @implementation RTSphere
 
 - (CGFloat)intersectsRay:(RTRay *)worldRay atPoint:(RTVector *)intersection normal:(RTVector *)normal {
-  RTRay *objectRay = [worldRay rayByTransformingByMatrix:RTMatrixIdentity()];
+  RTRay *objectRay = [worldRay rayByTransformingByMatrix:self.inverseTransformation];
   
   // NSLog(@"\n%@\n%@", worldRay, objectRay);
   
