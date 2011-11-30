@@ -86,15 +86,15 @@ RTMatrix RTMatrixScalarMultiply(RTMatrix A, CGFloat c) {
   retval.b3 = c * A.b3;
   retval.b4 = c * A.b4;
   
-  retval.b1 = c * A.c1;
-  retval.b2 = c * A.c2;
-  retval.b3 = c * A.c3;
-  retval.b4 = c * A.c4;
+  retval.c1 = c * A.c1;
+  retval.c2 = c * A.c2;
+  retval.c3 = c * A.c3;
+  retval.c4 = c * A.c4;
   
-  retval.b1 = c * A.d1;
-  retval.b2 = c * A.d2;
-  retval.b3 = c * A.d3;
-  retval.b4 = c * A.d4;
+  retval.d1 = c * A.d1;
+  retval.d2 = c * A.d2;
+  retval.d3 = c * A.d3;
+  retval.d4 = c * A.d4;
   
   return retval;
 }
