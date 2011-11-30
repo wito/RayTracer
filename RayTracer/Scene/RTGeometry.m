@@ -234,11 +234,14 @@ RTVector RTVectorCProduct(RTVector a, RTVector b) {
 
 
 RTVector RTVectorMatrixMultiply(RTVector self, RTMatrix m) {
-  return RTMakeVector(
-    self.x * m.a1 + self.y * m.a2 + self.z * m.a3 + m.a4,
-    self.x * m.b1 + self.y * m.b2 + self.z * m.b3 + m.b4,
-    self.x * m.c1 + self.y * m.c2 + self.z * m.c3 + m.c4
-  );
+  CGFloat x,y,z,T;
+  
+  x = self.x * m.a1 + self.y * m.a2 + self.z * m.a3 + m.a4;
+  y = self.x * m.b1 + self.y * m.b2 + self.z * m.b3 + m.b4;
+  z = self.x * m.c1 + self.y * m.c2 + self.z * m.c3 + m.c4;
+  T = self.x * m.d1 + self.y * m.d2 + self.z * m.d3 + m.d4;
+  
+  return RTMakeVector(x/T, y/T, z/T);
 }
 
 RTBounds RTMakeBounds(CGFloat x, CGFloat y, CGFloat z, CGFloat u, CGFloat v, CGFloat w) {
