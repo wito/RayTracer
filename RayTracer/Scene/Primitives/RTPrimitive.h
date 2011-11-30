@@ -8,6 +8,10 @@
 
 #import "RTSceneObject.h"
 
+@class RTMaterial;
+
 @interface RTPrimitive : RTSceneObject
+
+@property (retain) RTMaterial *material;
 
 @end

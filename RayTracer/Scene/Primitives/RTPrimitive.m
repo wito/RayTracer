@@ -7,7 +7,10 @@
 //
 
 #import "RTPrimitive.h"
+#import "RTMaterial.h"
 
 @implementation RTPrimitive
+
+@synthesize material = _material;
 
 @end
