@@ -10,6 +10,7 @@
 #import "RTGeometry.h"
 
 @class RTRay;
+@class RTMaterial;
 
 @interface RTSceneObject : NSObject
 
@@ -21,6 +22,6 @@
 - (void)rotateBy:(RTVector)v;
 - (void)perspectiveBy:(RTVector)v;
 
-- (CGFloat)intersectsRay:(RTRay *)ray atPoint:(RTVector *)intersection normal:(RTVector *)normal;
+- (CGFloat)intersectsRay:(RTRay *)ray atPoint:(RTVector *)intersection normal:(RTVector *)normal material:(RTMaterial **)material;
 
 @end

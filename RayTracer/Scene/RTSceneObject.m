@@ -71,7 +71,7 @@
   self.transformation = RTMatrixMultiply(self.transformation, perpMatrix);
 }
 
-- (CGFloat)intersectsRay:(RTRay *)ray atPoint:(RTVector *)intersection normal:(RTVector *)normal {
+- (CGFloat)intersectsRay:(RTRay *)ray atPoint:(RTVector *)intersection normal:(RTVector *)normal material:(RTMaterial **)material {
   return -1.0;
 }
 

@@ -11,7 +11,7 @@
 
 @implementation RTSphere
 
-- (CGFloat)intersectsRay:(RTRay *)worldRay atPoint:(RTVector *)intersection normal:(RTVector *)normal {
+- (CGFloat)intersectsRay:(RTRay *)worldRay atPoint:(RTVector *)intersection normal:(RTVector *)normal material:(RTMaterial **)material {
   RTRay *objectRay = [worldRay rayByTransformingByMatrix:self.inverseTransformation];
   
   // NSLog(@"\n%@\n%@", worldRay, objectRay);
@@ -50,6 +50,10 @@
     t = t1;
   } else {
     t = t0;
+  }
+  
+  if (material) {
+    *material = self.material;
   }
   
   if (intersection) {

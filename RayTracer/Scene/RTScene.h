@@ -16,4 +16,6 @@
 @property (readonly,retain) NSMutableArray *objects;
 @property (readonly,retain) NSMutableArray *lights;
 
+- (BOOL)renderToBitmapImageRep:(NSBitmapImageRep *)buffer;
+
 @end
