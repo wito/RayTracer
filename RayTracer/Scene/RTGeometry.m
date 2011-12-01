@@ -234,6 +234,16 @@ RTVector RTVectorCProduct(RTVector a, RTVector b) {
 
 
 RTVector RTVectorMatrixMultiply(RTVector self, RTMatrix m) {
+  CGFloat x,y,z;
+  
+  x = self.x * m.a1 + self.y * m.a2 + self.z * m.a3;
+  y = self.x * m.b1 + self.y * m.b2 + self.z * m.b3;
+  z = self.x * m.c1 + self.y * m.c2 + self.z * m.c3;
+  
+  return RTMakeVector(x, y, z);
+}
+
+RTVector RTPointMatrixMultiply(RTVector self, RTMatrix m) {
   CGFloat x,y,z,T;
   
   x = self.x * m.a1 + self.y * m.a2 + self.z * m.a3 + m.a4;

@@ -32,15 +32,16 @@
     RTSphere *sphere = [[[RTSphere alloc] init] autorelease];
     RTMaterial *blueSpec = [[RTMaterial new] autorelease];
     
-    blueSpec.diffuse = [NSColor colorWithDeviceRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    blueSpec.diffuse = [NSColor colorWithDeviceRed:1.0 green:0.0 blue:0.0 alpha:1.0];
     blueSpec.specular = [NSColor colorWithDeviceRed:1.0 green:1.0 blue:1.0 alpha:1.0];
-    blueSpec.shine = 1.0;
+    blueSpec.shine = 10.0;
     
-    [sphere addTransform:[RTTransform transformWithTranslation:RTMakeVector(-0.5, 0.5, 0.0)]];
+    [sphere addTransform:[RTTransform transformWithTranslation:RTMakeVector(-0.5, 0.5, -0.5)]];
+    [sphere addTransform:[RTTransform transformWithScaling:RTMakeVector(0.2, 0.2, 0.2)]];
     [sphere setMaterial:blueSpec];
 
     [_objects addObject:sphere];
-    
+
     sphere = [[[RTSphere alloc] init] autorelease];
     
     [sphere addTransform:[RTTransform transformWithTranslation:RTMakeVector(-0.5, -0.5, 0.0)]];
@@ -51,7 +52,6 @@
     sphere = [[[RTSphere alloc] init] autorelease];
     
     [sphere addTransform:[RTTransform transformWithTranslation:RTMakeVector(0.5, -0.5, 0.0)]];
-    [sphere addTransform:[RTTransform transformWithScaling:RTMakeVector(0.2, 0.2, 0.2)]];
     sphere.material = blueSpec;
     
     [_objects addObject:sphere];
@@ -62,15 +62,21 @@
     sphere.material = blueSpec;
     
     [_objects addObject:sphere];
-    
+
     RTLight *light = [[[RTLight alloc] init] autorelease];
     RTMaterial *whiteSpec = [[RTMaterial new] autorelease];
     
-    whiteSpec.specular = [[NSColor colorWithDeviceWhite:1.0 alpha:1.0] colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]];
-    whiteSpec.diffuse = [[NSColor colorWithDeviceWhite:1.0 alpha:1.0] colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]];
+    whiteSpec.specular = [[NSColor colorWithDeviceWhite:0.5 alpha:1.0] colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]];
+    whiteSpec.diffuse = [[NSColor colorWithDeviceWhite:0.5 alpha:1.0] colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]];
     
     light.material = whiteSpec;
-    [light addTransform:[RTTransform transformWithTranslation:RTMakeVector(0.0, 0.0, -2.5)]];
+    [light addTransform:[RTTransform transformWithTranslation:RTMakeVector(0.0, 5.0, -2.5)]];
+    [_lights addObject:light];
+    
+    light = [[[RTLight alloc] init] autorelease];
+    
+    light.material = whiteSpec;
+    [light addTransform:[RTTransform transformWithTranslation:RTMakeVector(0.0, -5.0, -2.5)]];
     [_lights addObject:light];
     
   }
@@ -102,9 +108,9 @@
       CGFloat Ir = 0.0;
       CGFloat Ig = 0.0;
       CGFloat Ib = 0.0;
-      
+
       for (RTLight *light in self.lights) {
-        RTVector lightLocation = RTVectorMatrixMultiply(RTMakeVector(0.0, 0.0, 0.0), light.transformation);
+        RTVector lightLocation = RTPointMatrixMultiply(RTMakeVector(0.0, 0.0, 0.0), light.transformation);
         RTRay *lightRay = [[RTRay alloc] initWithStart:RTVectorAddition(intersection,RTVectorMultiply(normal, 0.0005)) end:lightLocation];
         
         CGFloat shadow = 0.0;

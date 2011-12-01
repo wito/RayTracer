@@ -12,12 +12,11 @@
 @implementation RTSphere
 
 - (CGFloat)intersectsRay:(RTRay *)worldRay atPoint:(RTVector *)intersection normal:(RTVector *)normal material:(RTMaterial **)material {
-  RTRay *objectRay = [worldRay rayByTransformingByMatrix:self.inverseTransformation];
+  RTVector D_w = worldRay.direction;
+  RTVector O_w = worldRay.start;
   
-  // NSLog(@"\n%@\n%@", worldRay, objectRay);
-  
-  RTVector D = objectRay.direction;
-  RTVector O = objectRay.start;
+  RTVector D = RTVectorUnit(RTVectorMatrixMultiply(D_w, self.inverseTransformation));
+  RTVector O = RTPointMatrixMultiply(O_w, self.inverseTransformation);
   
   CGFloat A, B, C;
   
@@ -57,13 +56,13 @@
   }
   
   if (intersection) {
-    RTVector isect_o = RTVectorAddition(objectRay.start, RTVectorMultiply(objectRay.direction, t));
+    RTVector isect_o = RTVectorAddition(O, RTVectorMultiply(D, t));
     
-    *intersection = RTVectorMatrixMultiply(isect_o, self.transformation);
+    *intersection = RTPointMatrixMultiply(isect_o, self.transformation);
     
     if (normal) {
-      RTVector normal_o = RTVectorUnit(RTVectorSubtraction(isect_o, RTMakeVector(0.0, 0.0, 0.0)));
-      RTVector normal_w = RTVectorUnit(RTVectorMatrixMultiply(normal_o, self.transformationForNormal));
+      RTVector normal_o = RTVectorSubtraction(isect_o, RTMakeVector(0.0, 0.0, 0.0));
+      RTVector normal_w = RTVectorUnit(RTVectorMatrixMultiply(normal_o, RTMatrixTranspose(self.inverseTransformation)));
       
       *normal = normal_w;
     }

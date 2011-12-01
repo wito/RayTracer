@@ -16,15 +16,11 @@
 @interface RTSceneObject : NSObject
 
 @property (retain,readonly) NSMutableArray *transforms;
+@property (assign,readonly) RTMatrix transformation;
+@property (assign,readonly) RTMatrix inverseTransformation;
 
 - (CGFloat)intersectsRay:(RTRay *)ray atPoint:(RTVector *)intersection normal:(RTVector *)normal material:(RTMaterial **)material;
 
 - (void)addTransform:(RTTransform *)t;
-
-- (RTMatrix)transformation;
-- (RTMatrix)inverseTransformation;
-
-- (RTMatrix)transformationForNormal;
-- (RTMatrix)transformationForDisplacement;
 
 @end

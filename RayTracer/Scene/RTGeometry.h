@@ -68,6 +68,7 @@ CGFloat RTVectorDotProduct(RTVector,RTVector);
 RTVector RTVectorCProduct(RTVector,RTVector);
 
 RTVector RTVectorMatrixMultiply(RTVector,RTMatrix);
+RTVector RTPointMatrixMultiply(RTVector,RTMatrix);
 
 typedef struct {
   RTVector origin;

@@ -12,12 +12,15 @@
 @implementation RTSceneObject
 
 @synthesize transforms = _transforms;
+@synthesize transformation = _transformation;
+@dynamic inverseTransformation;
 
 - (id)init {
   self = [super init];
 
   if (self) {
     _transforms = [[NSMutableArray alloc] init];
+    _transformation = RTMatrixIdentity();
   }
   
   return self;
@@ -25,6 +28,7 @@
 
 - (void)addTransform:(RTTransform *)t {
   [self.transforms addObject:t];
+  _transformation = RTMatrixMultiply(_transformation, t.matrix);
 }
 
 /*
@@ -43,44 +47,8 @@
   return -1.0;
 }
 
-- (RTMatrix)transformation {
-  RTMatrix retval = RTMatrixIdentity();
-  
-  for (RTTransform *transform in [self.transforms objectEnumerator]) {
-    retval = RTMatrixMultiply(retval, transform.matrix);
-  }
-  
-  return retval;
-}
-
 - (RTMatrix)inverseTransformation {
-  RTMatrix retval = RTMatrixIdentity();
-  
-  for (RTTransform *transform in [self.transforms reverseObjectEnumerator]) {
-    retval = RTMatrixMultiply(retval, transform.inverse);
-  }
-  
-  return retval;
-}
-
-- (RTMatrix)transformationForNormal {
-  RTMatrix retval = RTMatrixIdentity();
-  
-  for (RTTransform *transform in [self.transforms objectEnumerator]) {
-    retval = RTMatrixMultiply(retval, transform.matrixForNormal);
-  }
-  
-  return retval;
-}
-
-- (RTMatrix)transformationForDisplacement {
-  RTMatrix retval = RTMatrixIdentity();
-  
-  for (RTTransform *transform in [self.transforms reverseObjectEnumerator]) {
-    retval = RTMatrixMultiply(retval, transform.matrixForDisplacement);
-  }
-  
-  return retval;
+  return RTMatrixInvert(self.transformation);
 }
 
 @end

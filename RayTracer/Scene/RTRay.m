@@ -38,15 +38,15 @@
 }
 
 - (void)transformByMatrix:(RTMatrix)transformation {
-  self.start = RTVectorMatrixMultiply(self.start, transformation);
-  self.end = RTVectorMatrixMultiply(self.end, transformation);
+  self.start = RTPointMatrixMultiply(self.start, transformation);
+  self.end = RTPointMatrixMultiply(self.end, transformation);
 }
 
 - (RTRay *)rayByTransformingByMatrix:(RTMatrix)transformation {
   RTRay *ray = [[[RTRay alloc] init] autorelease];
   
-  ray.start = RTVectorMatrixMultiply(self.start, transformation);
-  ray.end = RTVectorMatrixMultiply(self.end, transformation);
+  ray.start = RTPointMatrixMultiply(self.start, transformation);
+  ray.end = RTPointMatrixMultiply(self.end, transformation);
   
   return ray;
 }
