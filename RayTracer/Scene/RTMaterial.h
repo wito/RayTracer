@@ -12,6 +12,7 @@
 
 @property (retain) NSColor *specular;
 @property (retain) NSColor *diffuse;
+@property (retain) NSColor *ambience;
 @property (assign) CGFloat shine;
 
 @end

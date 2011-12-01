@@ -10,6 +10,6 @@
 
 @implementation RTMaterial
 
-@synthesize specular, diffuse, shine;
+@synthesize specular, diffuse, shine, ambience;
 
 @end

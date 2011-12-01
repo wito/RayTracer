@@ -34,6 +34,7 @@
     
     blueSpec.diffuse = [NSColor colorWithDeviceRed:1.0 green:0.0 blue:0.0 alpha:1.0];
     blueSpec.specular = [NSColor colorWithDeviceRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    blueSpec.ambience = [NSColor colorWithDeviceRed:0.4 green:0.5 blue:0.4 alpha:1.0];
     blueSpec.shine = 10.0;
     
     [sphere addTransform:[RTTransform transformWithTranslation:RTMakeVector(-0.5, 0.5, -0.5)]];
@@ -66,8 +67,9 @@
     RTLight *light = [[[RTLight alloc] init] autorelease];
     RTMaterial *whiteSpec = [[RTMaterial new] autorelease];
     
-    whiteSpec.specular = [[NSColor colorWithDeviceWhite:0.5 alpha:1.0] colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]];
+    whiteSpec.specular = [[NSColor colorWithDeviceWhite:1.0 alpha:1.0] colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]];
     whiteSpec.diffuse = [[NSColor colorWithDeviceWhite:0.5 alpha:1.0] colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]];
+    whiteSpec.ambience = [[NSColor colorWithDeviceWhite:0.050 alpha:1.0] colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]];
     
     light.material = whiteSpec;
     [light addTransform:[RTTransform transformWithTranslation:RTMakeVector(0.0, 5.0, -2.5)]];
@@ -90,6 +92,17 @@
   RTVector intersection, normal;
   RTMaterial *material;
   
+  // Ambient light components
+  CGFloat iar = 0.0;
+  CGFloat iag = 0.0;
+  CGFloat iab = 0.0;
+  
+  for (RTLight *light in self.lights) {
+    iar += light.material.ambience.redComponent;
+    iag += light.material.ambience.greenComponent;
+    iab += light.material.ambience.blueComponent;
+  }
+
   for (RTRay *ray in self.camera.rayEnumerator) {
     CGFloat bestHit = INFINITY;
     RTSceneObject *bestObject = nil;
@@ -105,9 +118,9 @@
     if (bestObject) {
       [bestObject intersectsRay:ray atPoint:&intersection normal:&normal material:&material];
       
-      CGFloat Ir = 0.0;
-      CGFloat Ig = 0.0;
-      CGFloat Ib = 0.0;
+      CGFloat Ir = iar * material.ambience.redComponent;
+      CGFloat Ig = iag * material.ambience.greenComponent;
+      CGFloat Ib = iab * material.ambience.blueComponent;
 
       for (RTLight *light in self.lights) {
         RTVector lightLocation = RTPointMatrixMultiply(RTMakeVector(0.0, 0.0, 0.0), light.transformation);
