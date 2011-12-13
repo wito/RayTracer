@@ -14,6 +14,7 @@
 #import "RTMaterial.h"
 #import "RTRay.h"
 #import "RTTransform.h"
+#import "RTPlane.h"
 
 #define EPSILON 0.0005
 
@@ -75,6 +76,19 @@
     sphere.material = redSpec;
 
     [_objects addObject:sphere];
+    
+    RTPlane *plane = [[[RTPlane alloc] init] autorelease];
+    RTMaterial *greenSpec = [[RTMaterial new] autorelease];
+    
+    greenSpec.diffuse = [NSColor colorWithDeviceRed:0.0 green:1.0 blue:0.0 alpha:1.0];
+    greenSpec.specular = [NSColor colorWithDeviceRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    greenSpec.ambience = [NSColor colorWithDeviceRed:0.2 green:1.0 blue:0.2 alpha:1.0];
+    
+    greenSpec.shine = 5.0;
+    greenSpec.reflectivity = 0.0;
+    
+    plane.material = greenSpec;
+    [_objects addObject:plane];
 
     RTLight *light = [[[RTLight alloc] init] autorelease];
     RTMaterial *whiteSpec = [[RTMaterial new] autorelease];
@@ -92,7 +106,6 @@
     light.material = whiteSpec;
     [light addTransform:[RTTransform transformWithTranslation:RTMakeVector(0.0, -5.0, -2.5)]];
     [_lights addObject:light];
-    
   }
   
   return self;
