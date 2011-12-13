@@ -10,6 +10,19 @@
 
 @implementation RTMaterial
 
-@synthesize specular, diffuse, shine, ambience;
+@synthesize specular, diffuse, shine, ambience, reflectivity;
+
+- (id)copyWithZone:(NSZone *)zone {
+  RTMaterial *retval = [[RTMaterial allocWithZone:zone] init];
+  
+  retval.specular = self.specular;
+  retval.diffuse = self.diffuse;
+  retval.ambience = self.ambience;
+
+  retval.shine = self.shine;
+  retval.reflectivity = self.reflectivity;
+  
+  return retval;
+}
 
 @end
